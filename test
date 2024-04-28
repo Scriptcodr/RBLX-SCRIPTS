@@ -22,12 +22,11 @@ end)
 Section3:NewButton("JulHub", "Ice Hub Emerged From The Grave", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JulHubz/JulHub/main/JulHub"))()
 end)
-Section:NewToggle("Collison", "Turn Collison On And Off", function(state)
+Section:NewToggle("Collison", "Toggle Collison On Your Character!", function(state)
     if state then
-
-
+        loadstring(game:HttpGet("https://github.com/TSPLOITOFFICIAL/ScriptDemos/blob/main/Collison%20%7C%20On",true))()
     else
-        print("Toggle Off")
+       loadstring(game:HttpGet("https://github.com/TSPLOITOFFICIAL/ScriptDemos/blob/main/Collision%20%7C%20Off",true))()
     end
 end)
 local Tab2 = Window:NewTab("Updates")
