@@ -1,0 +1,33 @@
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "ScriptExecutorTool"
+tool.RequiresHandle = false
+
+-- Create a script to be executed
+local scriptToExecute = [[
+    -- script here lol
+    
+]]
+
+-- Create a function to execute the script using loadstring
+local function executeScript()
+    local func, err = loadstring(scriptToExecute)
+    if func then
+        func()
+    else
+        warn("Error loading script: " .. err)
+    end
+end
+
+-- Connect the tool's activation to the script execution
+tool.Activated:Connect(executeScript)
+
+-- Parent the tool to the player's Backpack
+game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") and child.Name == "ScriptExecutorTool" then
+        -- Avoid duplicates by checking if the tool is already there
+        return
+    end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
